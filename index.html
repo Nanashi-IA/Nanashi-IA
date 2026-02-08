@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanashi Privacy AI | Node v1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nanashi | Sovereign AI Node</title>
     <style>
         :root {
             --bg-color: #050507;
@@ -254,6 +254,11 @@
             .stats-container { flex-direction: row; overflow-x: auto; }
             .stat-box { min-width: 140px; }
         }
+
+        @media (max-width: 480px) {
+            .icon-btn { width: 45px; height: 45px; font-size: 20px; }
+            .power-btn { padding: 14px 30px; font-size: 14px; }
+        }
     </style>
 </head>
 <body>
@@ -267,7 +272,6 @@
 
     <div class="main-content">
 
-        <!-- DASHBOARD -->
         <div id="view-dashboard" class="view-section active-view">
             <div class="card visualizer-container">
                 <div class="status-ring" id="statusRing">
@@ -326,21 +330,20 @@
         <div id="view-settings" class="view-section">
             <div class="card">
                 <h3>Configuration Node</h3>
-                <p style="margin: 15px 0; color: var(--neon-blue); font-size: clamp(14px, 3vw, 16px);">Worker ID: WK-2026-MAC</p>
-                <div style="margin: 20px 0; font-size: clamp(13px, 2.5vw, 15px);">Allocation GPU Max</div>
+                <p style="margin: 15px 0; color: var(--neon-blue);">Worker ID: WK-2026-MAC</p>
+                <div style="margin: 20px 0;">Allocation GPU Max</div>
                 <input type="range" min="10" max="100" value="70" style="width:100%;">
-                <div style="margin: 20px 0; font-size: clamp(13px, 2.5vw, 15px);">Démarrage automatique</div>
-                <label style="display:flex; align-items:center; gap:10px; font-size: clamp(13px, 2.5vw, 15px);">
+                <div style="margin: 20px 0;">Démarrage automatique</div>
+                <label style="display:flex; align-items:center; gap:10px;">
                     <input type="checkbox" checked> Au démarrage macOS
                 </label>
-                <button class="power-btn" style="margin-top:30px; width:100%; background:#333; font-size: clamp(13px, 2.5vw, 15px);">VIDER CACHE LOCAL</button>
+                <button class="power-btn" style="margin-top:30px; width:100%; background:#333;">VIDER CACHE LOCAL</button>
             </div>
         </div>
 
     </div>
 
     <script>
-        // Navigation
         document.querySelectorAll('.icon-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.icon-btn').forEach(b => b.classList.remove('active'));
@@ -350,7 +353,6 @@
             });
         });
 
-        // Mining simulation
         let mining = false;
         let balance = 0;
         let interval, logInterval;
@@ -389,7 +391,6 @@
                     document.getElementById('terminal').appendChild(log);
                     document.getElementById('terminal').scrollTop = document.getElementById('terminal').scrollHeight;
                 }, 3000);
-
             } else {
                 btn.textContent = "ACTIVER NANASHI";
                 btn.classList.remove('active');
@@ -402,7 +403,6 @@
             }
         });
 
-        // Chat simulation
         document.getElementById('sendBtn').addEventListener('click', sendChat);
         document.getElementById('chatInput').addEventListener('keypress', e => { if (e.key === 'Enter') sendChat(); });
 
