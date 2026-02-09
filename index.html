@@ -6,145 +6,122 @@
     <title>Nanashi | Sovereign AI Node</title>
     <style>
         :root {
-            --bg-color: #050507;
-            --glass-bg: rgba(20, 20, 30, 0.7);
+            --bg: #050507;
+            --glass: rgba(20, 20, 30, 0.65);
             --neon-blue: #00f3ff;
             --neon-purple: #bc13fe;
             --neon-green: #00ff9d;
             --neon-gold: #ffd700;
-            --text-color: #e0e0e0;
-            --text-dim: #888;
+            --text: #e0e0e0;
+            --dim: #888;
+            --border: rgba(255,255,255,0.08);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
             height: 100vh;
-            height: 100dvh;
             overflow: hidden;
             display: flex;
-            flex-direction: row;
         }
 
         .sidebar {
             width: 80px;
             background: rgba(0,0,0,0.95);
-            border-right: 1px solid #333;
+            border-right: 1px solid #222;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-top: 20px;
-            z-index: 1000;
-            transition: all 0.3s ease;
+            z-index: 100;
+            transition: all 0.3s;
         }
 
         .icon-btn {
             width: 50px;
             height: 50px;
             border-radius: 12px;
-            margin-bottom: 20px;
-            background: #1a1a1a;
+            margin: 12px 0;
+            background: #111;
             border: none;
-            color: #666;
+            color: #555;
+            font-size: 24px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 22px;
+            transition: all 0.3s;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
         }
 
-        .icon-btn.active, .icon-btn:hover {
-            background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(188, 19, 254, 0.2));
+        .icon-btn.active,
+        .icon-btn:hover {
+            background: linear-gradient(135deg, rgba(0,243,255,0.15), rgba(188,19,254,0.15));
             color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0,243,255,0.3);
             border: 1px solid var(--neon-blue);
         }
 
-        .main-content {
+        .main {
             flex: 1;
-            padding: clamp(15px, 3vw, 30px);
-            background: radial-gradient(circle at 50% 50%, #111119 0%, #000000 100%);
+            padding: clamp(16px, 4vw, 32px);
+            background: radial-gradient(circle at 50% 50%, #0f0f1a 0%, #000 100%);
             overflow-y: auto;
-            position: relative;
         }
 
-        .view-section {
+        .view {
             display: none;
-            width: 100%;
-            height: 100%;
-            animation: fadeIn 0.4s ease-in-out;
         }
 
-        .view-section.active-view {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(15px, 3vw, 25px);
-        }
-
-        #view-dashboard.active-view {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: auto auto;
-            gap: clamp(15px, 3vw, 25px);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .view.active {
+            display: block;
         }
 
         .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: clamp(20px, 4vw, 30px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: clamp(20px, 4vw, 32px);
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
         }
 
-        .card h3 {
-            margin: 0 0 clamp(10px, 2vw, 15px) 0;
-            font-size: clamp(12px, 2vw, 14px);
-            color: var(--text-dim);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .visualizer-container {
+        .ring-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            grid-row: 1 / 2;
-            grid-column: 1 / 3;
+            margin: 32px 0;
         }
 
         .status-ring {
-            width: clamp(140px, 40vw, 200px);
-            height: clamp(140px, 40vw, 200px);
+            width: clamp(160px, 40vw, 240px);
+            height: clamp(160px, 40vw, 240px);
             border-radius: 50%;
-            border: 6px solid #222;
+            border: 8px solid #222;
             display: flex;
-            justify-content: center;
             align-items: center;
-            transition: all 0.6s ease;
+            justify-content: center;
+            transition: all 0.6s;
+            position: relative;
         }
 
         .status-ring.active {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 60px rgba(0, 243, 255, 0.5);
-            animation: pulse 3s infinite;
+            box-shadow: 0 0 60px rgba(0,243,255,0.5);
+            animation: pulse 2.8s infinite;
         }
 
         .status-text {
-            font-size: clamp(22px, 6vw, 32px);
+            font-size: clamp(24px, 6vw, 36px);
             font-weight: bold;
-            color: #555;
+            color: #444;
         }
 
         .status-text.active {
@@ -154,70 +131,89 @@
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.04); }
+        }
+
+        .mining-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-blue));
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--neon-green);
+            pointer-events: none;
+            z-index: 10;
         }
 
         .power-btn {
-            margin-top: clamp(20px, 5vw, 40px);
-            padding: clamp(14px, 3vw, 20px) clamp(40px, 8vw, 60px);
-            background: #222;
+            margin: 32px 0;
+            padding: 16px 64px;
+            background: #111;
             color: white;
-            border: 1px solid #444;
-            border-radius: 40px;
+            border: 1px solid #333;
+            border-radius: 50px;
+            font-size: 18px;
             font-weight: bold;
-            font-size: clamp(14px, 3vw, 18px);
             cursor: pointer;
-            transition: 0.4s;
+            transition: all 0.4s;
         }
 
         .power-btn.active {
             background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.6);
+            box-shadow: 0 0 30px rgba(188,19,254,0.5);
             border: none;
         }
 
-        .stats-container {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(10px, 2vw, 15px);
-            grid-row: 2 / 3;
-            grid-column: 1 / 3;
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
         }
 
-        .stat-box {
+        .stat-card {
             background: rgba(0,0,0,0.4);
-            border-radius: 15px;
-            padding: clamp(15px, 3vw, 25px);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
             border-left: 4px solid #444;
-            display: flex;
-            flex-direction: column;
         }
 
-        .stat-box.earn { border-color: var(--neon-green); }
-        .stat-box.gpu { border-color: var(--neon-purple); }
-        .stat-box.nodes { border-color: var(--neon-gold); }
+        .earn { border-color: var(--neon-green); }
+        .gpu { border-color: var(--neon-purple); }
+        .nodes { border-color: var(--neon-gold); }
 
-        .stat-label { font-size: clamp(10px, 2vw, 12px); color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
-        .stat-value { font-size: clamp(20px, 5vw, 28px); font-weight: bold; font-family: monospace; margin: 8px 0; }
+        .label {
+            font-size: 12px;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        .terminal-container {
-            background: #08080a;
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: clamp(12px, 2vw, 20px);
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: monospace;
+            margin: 8px 0;
+        }
+
+        .terminal {
+            background: #000;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 16px;
             font-family: 'Courier New', monospace;
-            font-size: clamp(12px, 2vw, 14px);
             color: #0f0;
+            max-height: 200px;
             overflow-y: auto;
-            max-height: clamp(150px, 30vh, 250px);
-            grid-row: 3 / 4;
-            grid-column: 1 / 3;
         }
 
-        .log-entry { margin-bottom: 6px; opacity: 0.9; }
+        .log {
+            margin: 4px 0;
+        }
 
         /* Chat */
-        .chat-card {
+        .chat {
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -225,137 +221,168 @@
 
         .chat-window {
             flex: 1;
-            background: rgba(0,0,0,0.3);
-            border-radius: 15px;
-            padding: clamp(15px, 3vw, 25px);
+            background: rgba(0,0,0,0.4);
+            border-radius: 12px;
+            padding: 16px;
             overflow-y: auto;
-            margin-bottom: 15px;
-            border: 1px solid #333;
-            min-height: clamp(250px, 50vh, 400px);
+            margin-bottom: 16px;
         }
 
-        .chat-input-area { display: flex; gap: clamp(8px, 2vw, 15px); }
-        .chat-input { flex: 1; background: #111; border: 1px solid #333; color: white; padding: clamp(12px, 2vw, 18px); border-radius: 12px; outline: none; font-size: clamp(14px, 3vw, 16px); }
-        .send-btn { background: var(--neon-blue); border: none; padding: 0 clamp(20px, 5vw, 35px); border-radius: 12px; color: black; font-weight: bold; cursor: pointer; font-size: clamp(14px, 3vw, 16px); }
+        .msg {
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin: 8px 0;
+            max-width: 80%;
+        }
 
-        .msg { padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 20px); border-radius: 15px; margin-bottom: 12px; max-width: 85%; word-wrap: break-word; font-size: clamp(13px, 2.5vw, 15px); }
-        .msg.user { background: rgba(0, 243, 255, 0.15); border: 1px solid var(--neon-blue); align-self: flex-end; margin-left: auto; }
-        .msg.ai { background: rgba(188, 19, 254, 0.15); border: 1px solid var(--neon-purple); color: var(--neon-blue); }
+        .msg.user {
+            background: rgba(0,243,255,0.15);
+            border: 1px solid var(--neon-blue);
+            margin-left: auto;
+        }
+
+        .msg.ai {
+            background: rgba(188,19,254,0.15);
+            border: 1px solid var(--neon-purple);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .send-btn {
+            background: var(--neon-blue);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            #view-dashboard.active-view { grid-template-columns: 1fr; }
-        }
-
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            .sidebar { position: fixed; bottom: 0; left: 0; width: 100%; height: 70px; flex-direction: row; justify-content: space-around; border-top: 1px solid #333; padding-top: 0; }
-            .main-content { padding-bottom: 90px; }
-            .stats-container { flex-direction: row; overflow-x: auto; }
-            .stat-box { min-width: 140px; }
-        }
-
-        @media (max-width: 480px) {
-            .icon-btn { width: 45px; height: 45px; font-size: 20px; }
-            .power-btn { padding: 14px 30px; font-size: 14px; }
+            .sidebar { 
+                position: fixed; 
+                bottom: 0; 
+                left: 0; 
+                width: 100%; 
+                height: 70px; 
+                flex-direction: row; 
+                justify-content: space-around; 
+                border-top: 1px solid #222; 
+                padding-top: 0; 
+            }
+            .main { padding-bottom: 90px; }
+            .stats { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
-        <button class="icon-btn active" data-target="view-dashboard">⚡</button>
-        <button class="icon-btn" data-target="view-chat">💬</button>
-        <button class="icon-btn" data-target="view-security">🛡️</button>
-        <button class="icon-btn" data-target="view-settings">⚙️</button>
+        <button class="icon-btn active" data-view="dashboard">⚡</button>
+        <button class="icon-btn" data-view="chat">💬</button>
+        <button class="icon-btn" data-view="security">🛡️</button>
+        <button class="icon-btn" data-view="settings">⚙️</button>
     </div>
 
-    <div class="main-content">
+    <div class="main">
 
-        <div id="view-dashboard" class="view-section active-view">
-            <div class="card visualizer-container">
-                <div class="status-ring" id="statusRing">
-                    <div class="status-text" id="statusText">PRÊT</div>
+        <!-- Dashboard -->
+        <div id="dashboard" class="view active">
+            <div class="card ring-container">
+                <div class="status-ring" id="ring">
+                    <div class="status-text" id="status">PRÊT</div>
                 </div>
-                <button class="power-btn" id="powerBtn">ACTIVER NANASHI</button>
+                <button class="power-btn" id="power">ACTIVER NANASHI</button>
             </div>
 
-            <div class="card stats-container">
-                <div class="stat-box earn">
-                    <div class="stat-label">GAINS $NANA</div>
-                    <div class="stat-value" id="coinBalance">0.0000</div>
+            <div class="stats">
+                <div class="stat-card earn">
+                    <div class="label">GAINS $NANA</div>
+                    <div class="value" id="gains">0.0000</div>
                 </div>
-                <div class="stat-box gpu">
-                    <div class="stat-label">CHARGE GPU</div>
-                    <div class="stat-value" id="gpuLoad">0 %</div>
+                <div class="stat-card gpu">
+                    <div class="label">CHARGE GPU</div>
+                    <div class="value" id="gpu">0 %</div>
                 </div>
-                <div class="stat-box nodes">
-                    <div class="stat-label">NŒUDS ACTIFS</div>
-                    <div class="stat-value">1,337</div>
+                <div class="stat-card nodes">
+                    <div class="label">NŒUDS ACTIFS</div>
+                    <div class="value">1,337</div>
                 </div>
             </div>
 
-            <div class="card terminal-container" id="terminal">
-                <div class="log-entry">> Nanashi Node v1.0 initialisé</div>
-                <div class="log-entry">> Privacy zero-trust activé</div>
+            <div class="card terminal" id="terminal">
+                <div class="log">> Nanashi Node v1.0 initialisé</div>
+                <div class="log">> Privacy zero-trust activé</div>
             </div>
         </div>
 
-        <!-- CHAT -->
-        <div id="view-chat" class="view-section">
-            <div class="card chat-card">
+        <!-- Chat -->
+        <div id="chat" class="view">
+            <div class="card">
                 <h3>Nanashi Local – Chiffrement E2E</h3>
                 <div class="chat-window" id="chatWindow">
-                    <div class="msg ai">Connexion sécurisée établie 🔒<br>Je suis Nanashi Local – intelligence souveraine.<br>Split inference prêt. Comment puis-je vous aider ? 🚀</div>
+                    <div class="msg ai">Connexion sécurisée 🔒<br>Je suis Nanashi – intelligence souveraine.<br>Comment puis-je vous aider ?</div>
                 </div>
                 <div class="chat-input-area">
-                    <input type="text" id="chatInput" class="chat-input" placeholder="Message sécurisé...">
-                    <button class="send-btn" id="sendBtn">Envoyer</button>
+                    <input type="text" id="chatInput" placeholder="Message sécurisé...">
+                    <button class="send-btn" id="send">Envoyer</button>
                 </div>
             </div>
         </div>
 
-        <!-- SECURITY -->
-        <div id="view-security" class="view-section">
+        <!-- Security -->
+        <div id="security" class="view">
             <div class="card">
                 <h3>Audit de Sécurité</h3>
-                <div class="audit-item"><span>Tunnel Cloudflare</span><span class="status-ok">ACTIF (SSL)</span></div>
-                <div class="audit-item"><span>Injection de bruit</span><span class="status-ok">ZERO-TRUST</span></div>
-                <div class="audit-item"><span>Clé matérielle</span><span class="status-warn">NON DÉTECTÉE</span></div>
-                <div class="audit-item"><span>Nanashi Consensus</span><span class="status-ok">SYNCHRONISÉ</span></div>
+                <div class="audit-item"><span>Tunnel Cloudflare</span><span class="ok">ACTIF</span></div>
+                <div class="audit-item"><span>Injection de bruit</span><span class="ok">ZERO-TRUST</span></div>
+                <div class="audit-item"><span>Clé matérielle</span><span class="warn">NON DÉTECTÉE</span></div>
+                <div class="audit-item"><span>Nanashi Consensus</span><span class="ok">SYNCHRONISÉ</span></div>
             </div>
         </div>
 
-        <!-- SETTINGS -->
-        <div id="view-settings" class="view-section">
+        <!-- Settings -->
+        <div id="settings" class="view">
             <div class="card">
                 <h3>Configuration Node</h3>
-                <p style="margin: 15px 0; color: var(--neon-blue);">Worker ID: WK-2026-MAC</p>
+                <p>Worker ID: WK-2026-MAC</p>
                 <div style="margin: 20px 0;">Allocation GPU Max</div>
                 <input type="range" min="10" max="100" value="70" style="width:100%;">
                 <div style="margin: 20px 0;">Démarrage automatique</div>
                 <label style="display:flex; align-items:center; gap:10px;">
                     <input type="checkbox" checked> Au démarrage macOS
                 </label>
-                <button class="power-btn" style="margin-top:30px; width:100%; background:#333;">VIDER CACHE LOCAL</button>
             </div>
         </div>
 
     </div>
 
     <script>
+        // Navigation
         document.querySelectorAll('.icon-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.icon-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                document.querySelectorAll('.view-section').forEach(v => v.classList.remove('active-view'));
-                document.getElementById(btn.dataset.target).classList.add('active-view');
+                document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+                document.getElementById(btn.dataset.view).classList.add('active');
             });
         });
 
+        // Mining animation
         let mining = false;
         let balance = 0;
-        let interval, logInterval;
+        let gpu = 0;
+        let interval, particleInterval;
 
         const logs = [
             "Tâche split inference reçue...",
@@ -365,68 +392,90 @@
             "Récompense $NANA ajoutée"
         ];
 
-        document.getElementById('powerBtn').addEventListener('click', () => {
+        function createParticles() {
+            const ring = document.getElementById('ring');
+            for (let i = 0; i < 25; i++) {
+                const p = document.createElement('div');
+                p.className = 'mining-particle';
+                const angle = Math.random() * Math.PI * 2;
+                const r = 110 + Math.random() * 30;
+                p.style.left = `calc(50% + ${Math.cos(angle) * r}px)`;
+                p.style.top = `calc(50% + ${Math.sin(angle) * r}px)`;
+                ring.appendChild(p);
+                p.animate([
+                    { transform: 'translate(0,0) scale(1)', opacity: 0.8 },
+                    { transform: `translate(${Math.random()*100-50}px, ${Math.random()*100-50}px) scale(0.4)`, opacity: 0 }
+                ], {
+                    duration: (2 + Math.random()*3) * 1000,
+                    iterations: Infinity,
+                    delay: Math.random() * 2000,
+                    easing: 'ease-in-out'
+                });
+            }
+        }
+
+        document.getElementById('power').addEventListener('click', () => {
             mining = !mining;
-            const btn = document.getElementById('powerBtn');
-            const ring = document.getElementById('statusRing');
-            const text = document.getElementById('statusText');
+            const btn = document.getElementById('power');
+            const ring = document.getElementById('ring');
+            const status = document.getElementById('status');
 
             if (mining) {
                 btn.textContent = "DÉSACTIVER";
                 btn.classList.add('active');
                 ring.classList.add('active');
-                text.textContent = "ACTIF";
-                text.classList.add('active');
+                status.textContent = "ACTIF";
+                status.classList.add('active');
 
                 interval = setInterval(() => {
-                    balance += Math.random() * 0.0002;
-                    document.getElementById('coinBalance').textContent = balance.toFixed(6);
-                    document.getElementById('gpuLoad').textContent = Math.floor(Math.random() * 50 + 30) + " %";
-                }, 1500);
+                    balance += Math.random() * 0.0005;
+                    gpu = Math.floor(Math.random() * 40 + 40);
+                    document.getElementById('gains').textContent = balance.toFixed(6);
+                    document.getElementById('gpu').textContent = gpu + " %";
+                }, 800);
 
                 logInterval = setInterval(() => {
                     const log = document.createElement('div');
-                    log.className = 'log-entry';
+                    log.className = 'log';
                     log.textContent = "> " + logs[Math.floor(Math.random() * logs.length)];
                     document.getElementById('terminal').appendChild(log);
                     document.getElementById('terminal').scrollTop = document.getElementById('terminal').scrollHeight;
-                }, 3000);
+                }, 2500);
+
+                createParticles();
             } else {
                 btn.textContent = "ACTIVER NANASHI";
                 btn.classList.remove('active');
                 ring.classList.remove('active');
-                text.textContent = "PRÊT";
-                text.classList.remove('active');
-                document.getElementById('gpuLoad').textContent = "0 %";
+                status.textContent = "PRÊT";
+                status.classList.remove('active');
+                document.getElementById('gpu').textContent = "0 %";
                 clearInterval(interval);
                 clearInterval(logInterval);
+                document.querySelectorAll('.mining-particle').forEach(p => p.remove());
             }
         });
 
-        document.getElementById('sendBtn').addEventListener('click', sendChat);
-        document.getElementById('chatInput').addEventListener('keypress', e => { if (e.key === 'Enter') sendChat(); });
-
-        function sendChat() {
+        // Chat
+        document.getElementById('send').addEventListener('click', () => {
             const input = document.getElementById('chatInput');
             const text = input.value.trim();
             if (!text) return;
 
-            const userMsg = document.createElement('div');
-            userMsg.className = 'msg user';
-            userMsg.textContent = text;
-            document.getElementById('chatWindow').appendChild(userMsg);
+            const msg = document.createElement('div');
+            msg.className = 'msg user';
+            msg.textContent = text;
+            document.getElementById('chatWindow').appendChild(msg);
             input.value = '';
 
             setTimeout(() => {
-                const aiMsg = document.createElement('div');
-                aiMsg.className = 'msg ai';
-                aiMsg.innerHTML = "Reçu chiffré. Analyse distribuée en cours...<br>Privacy zero-trust garantie 🔒🚀";
-                document.getElementById('chatWindow').appendChild(aiMsg);
+                const ai = document.createElement('div');
+                ai.className = 'msg ai';
+                ai.innerHTML = "Reçu chiffré. Analyse en cours...<br>Privacy garantie 🔒";
+                document.getElementById('chatWindow').appendChild(ai);
                 document.getElementById('chatWindow').scrollTop = document.getElementById('chatWindow').scrollHeight;
-            }, 1000);
-
-            document.getElementById('chatWindow').scrollTop = document.getElementById('chatWindow').scrollHeight;
-        }
+            }, 1200);
+        });
     </script>
 </body>
 </html>
