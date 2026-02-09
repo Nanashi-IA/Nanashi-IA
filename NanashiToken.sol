@@ -62,6 +62,12 @@ contract NanashiToken is ERC20, ERC20Burnable, Pausable, AccessControl {
         super._transfer(from, to, amount - taxAmount);
     }
 
+    // Renonce à tous les rôles (admin + minter) – fair launch, plus de contrôle centralisé
+    function renounceAllRoles() external {
+        renounceRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        renounceRole(MINTER_ROLE, msg.sender);
+    }
+
     // Claim rewards (placeholder – à connecter à ton système mining)
     function claimRewards(uint256 amount) external {
         require(balanceOf(msg.sender) >= amount, "Insufficient balance");
