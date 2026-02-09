@@ -188,3 +188,13 @@ contract NanashiToken is ERC20, ERC20Burnable, Pausable, AccessControl {
         _burn(msg.sender, amount);
     }
 }
+// Renonce ownership total (fair launch définitif)
+function renounceOwnership() external onlyRole(DEFAULT_ADMIN_ROLE) {
+    renounceRole(DEFAULT_ADMIN_ROLE, msg.sender);
+}
+
+// Blacklist basique
+mapping(address => bool) public blacklisted;
+function blacklistAddress(address account, bool status) external onlyRole(DEFAULT_ADMIN_ROLE) {
+    blacklisted[account] = status;
+}
