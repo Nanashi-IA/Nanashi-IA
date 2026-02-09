@@ -1,4 +1,14 @@
 # Nanashi Privacy AI 🚀🔒🐝
+## Pourquoi Nanashi est différent
+
+| Autres IA (cloud/local) | Nanashi IA | Pourquoi ça change tout |
+|--------------------------|------------|--------------------------|
+| Données envoyées au cloud | 100% on-device | Aucune fuite possible |
+| Latence 300ms–2s | <100ms sur M4/M5 | Réponse instantanée |
+| Censure & tracking | Zero censorship | Liberté totale |
+| Abonnement ou API payante | Gratuit forever | Pas de dépendance |
+| Pas de récompenses | Taxes 1% → stakers | Tu gagnes en utilisant |
+| Centralisé (API) | Décentralisé (futur subnet) | Souveraineté réelle |
 
 **Intelligence artificielle souveraine décentralisée – Privacy zero-trust on-device**
 
