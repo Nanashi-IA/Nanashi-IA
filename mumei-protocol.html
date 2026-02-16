@@ -45,7 +45,7 @@
         }
 
         .diagram-label {
-            position: absolute Remain;
+            position: absolute;
             top: 20px;
             left: 20px;
             font-size: 12px;
@@ -92,22 +92,180 @@
     <div class="diagram-container">
         <div class="diagram-label">FIGURE 1: ARCHITECTURE SOUVERAINE END-TO-END</div>
         <svg viewBox="0 0 800 400">
-            <!-- (Le SVG reste identique – pas de changement de nom dedans) -->
-            <!-- ... (tout le SVG original) ... -->
+            <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#222" stroke-width="0.5"/>
+                </pattern>
+                <linearGradient id="tunnelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#00f3ff;stop-opacity:0.1" />
+                    <stop offset="50%" style="stop-color:#00f3ff;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#00f3ff;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+
+            <g transform="translate(50, 100)">
+                <line x1="200" y1="-50" x2="200" y2="300" stroke="#444" stroke-dasharray="5,5" stroke-width="2"/>
+                <text x="160" y="-30" fill="#666" font-size="10">TRUST BOUNDARY</text>
+
+                <rect x="0" y="50" width="120" height="120" rx="10" fill="#111" stroke="#fff" stroke-width="2" />
+                <text x="60" y="110" text-anchor="middle" class="label-bold">MASTER NODE</text>
+                <text x="60" y="130" text-anchor="middle" class="label-sm">SG195220 Core</text>
+
+                <rect x="-20" y="90" width="40" height="20" rx="2" fill="#ffd700" class="glow-gold" />
+                <path d="M 20 100 L 40 100" stroke="#ffd700" stroke-width="2" />
+                <text x="-25" y="80" fill="#ffd700" font-size="10">HARDWARE KEY</text>
+                
+                <path d="M 60 20 L 60 50" stroke="#fff" stroke-width="2" marker-end="url(#arrow)" />
+                <rect x="40" y="0" width="40" height="20" fill="#333" />
+                <text x="60" y="14" text-anchor="middle" font-size="9">SECRET DATA</text>
+            </g>
+
+            <g transform="translate(250, 140)">
+                <rect x="0" y="0" width="300" height="60" fill="url(#tunnelGrad)" rx="30" stroke="#00f3ff" stroke-width="1" stroke-opacity="0.5" />
+                <text x="150" y="-10" text-anchor="middle" fill="#00f3ff" font-size="10">CLOUDFLARE SECURE TUNNEL (SSL)</text>
+                
+                <path d="M 20 30 L 280 30" stroke="#00f3ff" stroke-width="2" class="flow-line" />
+                <rect x="50" y="20" width="10" height="10" fill="#00f3ff" class="pulse" />
+                <rect x="120" y="35" width="10" height="10" fill="#00f3ff" class="pulse" />
+                <rect x="200" y="15" width="10" height="10" fill="#00f3ff" class="pulse" />
+            </g>
+
+            <g transform="translate(550, 50)">
+                <line x1="0" y1="0" x2="0" y2="350" stroke="#444" stroke-dasharray="5,5" stroke-width="2"/>
+                <text x="10" y="20" fill="#666" font-size="10">UNTRUSTED ZONE</text>
+                
+                <g class="glow-blue">
+                    <circle cx="50" cy="80" r="10" fill="#222" stroke="#00f3ff" />
+                    <circle cx="120" cy="60" r="10" fill="#222" stroke="#00f3ff" />
+                    <circle cx="80" cy="120" r="10" fill="#222" stroke="#00f3ff" />
+                    <circle cx="150" cy="100" r="10" fill="#222" stroke="#00f3ff" />
+                    <line x1="50" y1="80" x2="120" y2="60" stroke="#00f3ff" stroke-width="0.5" />
+                    <line x1="50" y1="80" x2="80" y2="120" stroke="#00f3ff" stroke-width="0.5" />
+                    <line x1="80" y1="120" x2="150" y2="100" stroke="#00f3ff" stroke-width="0.5" />
+                </g>
+                <text x="100" y="150" text-anchor="middle" class="label-bold">WORKER HIVE</text>
+                <text x="100" y="170" text-anchor="middle" class="label-sm" fill="#ff5555">ZERO KNOWLEDGE</text>
+            </g>
+
+            <g transform="translate(0, 320)">
+                <rect x="50" y="0" width="700" height="40" rx="5" fill="#1a1a1a" stroke="#00ff9d" stroke-width="1" />
+                <text x="400" y="25" text-anchor="middle" fill="#00ff9d" letter-spacing="2">MUMEI CONSENSUS LAYER (PROOF OF INTELLIGENCE)</text>
+                <line x1="600" y1="-100" x2="600" y2="0" stroke="#00ff9d" stroke-dasharray="2" opacity="0.5" />
+                <line x1="670" y1="-120" x2="670" y2="0" stroke="#00ff9d" stroke-dasharray="2" opacity="0.5" />
+            </g>
         </svg>
     </div>
 
     <div class="diagram-container">
         <div class="diagram-label">FIGURE 2: SPLIT INFERENCE & INJECTION DE BRUIT</div>
         <svg viewBox="0 0 800 250">
-            <!-- (SVG original inchangé) -->
+            <g transform="translate(50, 100)">
+                <rect x="0" y="-30" width="80" height="60" rx="5" fill="#222" stroke="#fff" />
+                <text x="40" y="5" text-anchor="middle" class="label-bold">INPUT</text>
+                <text x="40" y="20" text-anchor="middle" class="label-sm">Matrix T</text>
+            </g>
+
+            <path d="M 130 100 L 170 100" stroke="#888" stroke-width="2" />
+
+            <g transform="translate(170, 70)">
+                <polygon points="30,0 60,30 30,60 0,30" fill="#333" stroke="#00f3ff" />
+                <text x="30" y="34" text-anchor="middle" font-size="10" fill="#00f3ff">SPLIT</text>
+            </g>
+
+            <path d="M 230 100 L 270 60" stroke="#00f3ff" stroke-width="1" />
+            <path d="M 230 100 L 270 140" stroke="#00f3ff" stroke-width="1" />
+
+            <g transform="translate(270, 30)">
+                <rect x="0" y="0" width="100" height="40" rx="5" fill="#222" stroke="#bc13fe" />
+                <text x="50" y="25" text-anchor="middle" font-size="10" fill="#bc13fe">+ NOISE (ε)</text>
+            </g>
+            <g transform="translate(270, 130)">
+                <rect x="0" y="0" width="100" height="40" rx="5" fill="#222" stroke="#bc13fe" />
+                <text x="50" y="25" text-anchor="middle" font-size="10" fill="#bc13fe">+ NOISE (ε)</text>
+            </g>
+
+            <line x1="380" y1="50" x2="450" y2="50" stroke="#ff5555" stroke-dasharray="4" />
+            <line x1="380" y1="150" x2="450" y2="150" stroke="#ff5555" stroke-dasharray="4" />
+            
+            <text x="415" y="40" text-anchor="middle" font-size="8" fill="#ff5555">UNSECURE</text>
+
+            <g transform="translate(450, 30)">
+                <circle cx="20" cy="20" r="20" fill="#111" stroke="#fff" />
+                <text x="20" y="25" text-anchor="middle">⚙️</text>
+                <text x="20" y="60" text-anchor="middle" class="label-sm">Worker A</text>
+            </g>
+            <g transform="translate(450, 130)">
+                <circle cx="20" cy="20" r="20" fill="#111" stroke="#fff" />
+                <text x="20" y="25" text-anchor="middle">⚙️</text>
+                <text x="20" y="60" text-anchor="middle" class="label-sm">Worker B</text>
+            </g>
+
+            <path d="M 500 50 L 580 100" stroke="#00ff9d" stroke-width="1" />
+            <path d="M 500 150 L 580 100" stroke="#00ff9d" stroke-width="1" />
+
+            <g transform="translate(580, 70)">
+                <rect x="0" y="0" width="120" height="60" rx="5" fill="#111" stroke="#00ff9d" class="glow-green" />
+                <text x="60" y="25" text-anchor="middle" class="label-bold" fill="#00ff9d">DE-NOISING</text>
+                <text x="60" y="45" text-anchor="middle" class="label-sm">(-ε) with Private Key</text>
+            </g>
         </svg>
     </div>
 
     <div class="diagram-container">
         <div class="diagram-label">FIGURE 3: ÉCONOMIE CIRCULAIRE $NANA</div>
         <svg viewBox="0 0 600 400">
-            <!-- (SVG original inchangé) -->
+            <g transform="translate(300, 200)">
+                <circle cx="0" cy="0" r="60" fill="#111" stroke="#fff" stroke-width="3" />
+                <text x="0" y="5" text-anchor="middle" font-size="30" font-weight="bold">M</text>
+                <text x="0" y="25" text-anchor="middle" font-size="8">MUMEI CORE</text>
+            </g>
+
+            <g transform="translate(300, 50)">
+                <circle cx="0" cy="0" r="40" fill="#222" stroke="#00f3ff" />
+                <text x="0" y="5" text-anchor="middle" font-size="10">CLIENTS</text>
+            </g>
+
+            <g transform="translate(100, 150)">
+                <path d="M0,0 Q10,-30 0,-40 Q-10,-30 0,0" fill="orange" transform="scale(1.5)" class="pulse"/>
+                <text x="0" y="30" text-anchor="middle" font-size="10" fill="orange">TOKEN BURN</text>
+                <text x="0" y="45" text-anchor="middle" font-size="8" fill="#666">(Deflation)</text>
+            </g>
+
+            <g transform="translate(300, 350)">
+                <circle cx="0" cy="0" r="40" fill="#222" stroke="#00ff9d" />
+                <text x="0" y="5" text-anchor="middle" font-size="10">WORKERS</text>
+            </g>
+
+            <g transform="translate(500, 200)">
+                <rect x="-30" y="-20" width="60" height="40" fill="#222" stroke="#bc13fe" />
+                <text x="0" y="5" text-anchor="middle" font-size="10">TREASURY</text>
+            </g>
+
+            <path d="M 300 90 L 300 140" stroke="#00f3ff" stroke-width="2" marker-end="url(#arrowBlue)" class="flow-line"/>
+            <text x="310" y="120" font-size="10" fill="#00f3ff">PAYMENT</text>
+            
+            <path d="M 300 260 L 300 310" stroke="#00ff9d" stroke-width="2" marker-end="url(#arrowGreen)" class="flow-line"/>
+            <text x="310" y="290" font-size="10" fill="#00ff9d">REWARDS</text>
+
+            <path d="M 280 120 L 150 150" stroke="orange" stroke-dasharray="2" />
+
+            <path d="M 360 200 L 470 200" stroke="#bc13fe" stroke-dasharray="2" />
+
+            <path d="M 260 350 Q 180 300 240 220" fill="none" stroke="#666" stroke-dasharray="4" marker-end="url(#arrowGray)"/>
+            <text x="180" y="320" font-size="10" fill="#666">STAKING</text>
+
+            <defs>
+                <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00f3ff" />
+                </marker>
+                <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#00ff9d" />
+                </marker>
+                <marker id="arrowGray" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+                </marker>
+            </defs>
         </svg>
     </div>
 
