@@ -20,6 +20,15 @@
 - **UI premium** : Neon/glassmorphism dashboard (mining, chat sécurisé, audit).
 - **Hybrid mode** : Local + contribution anonyme décentralisée.
 
+- ### 🛰️ Nanashi Swarm (Decentralized Updates)
+
+Nanashi introduit une architecture de mise à jour **"Zero-Trust & Bandwidth-Efficient"**. Fini les téléchargements de 10 Go à chaque correctif.
+
+* **Smart Registry (`NanashiRegistry.sol`)** : Chaque version est signée et ancrée sur la blockchain (Hash IPFS + Checksum). Impossible d'injecter du code malveillant sans la clé privée de la DAO.
+  
+* **Incremental LoRA (`nanashi_updater.py`)** : Le client télécharge uniquement les "différentiels" d'intelligence (adapters LoRA de ~50Mo) via IPFS et les fusionne à chaud dans le Neural Engine via MLX.
+* **Résultat** : Votre IA évolue chaque semaine sans saturation réseau et sans redémarrage.
+  
 ### Roadmap 2026 (mise à jour février)
 - **Q1 (en cours)** : MVP local finalisé, MLX integration, UI avancée.
 - **Q2** : Subnet Bittensor testnet (privacy PoI + zk proofs).
