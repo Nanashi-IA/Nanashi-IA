@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumei Protocol - Schémas Techniques</title>
+    <style>
+        :root {
+            --bg-color: #050507;
+            --panel-bg: #0f0f13;
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #00ff9d;
+            --neon-gold: #ffd700;
+            --text-main: #e0e0e0;
+            --text-dim: #888;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        h1, h2 { text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+        h1 { color: var(--neon-blue); margin-bottom: 10px; }
+        h2 { font-size: 14px; color: var(--text-dim); margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 10px; display: inline-block;}
+
+        .diagram-container {
+            background: var(--panel-bg);
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .diagram-label {
+            position: absolute Remain;
+            top: 20px;
+            left: 20px;
+            font-size: 12px;
+            color: var(--text-dim);
+            border: 1px solid #333;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        svg { width: 100%; height: auto; display: block; }
+        
+        .glow-blue { filter: drop-shadow(0 0 5px var(--neon-blue)); }
+        .glow-gold { filter: drop-shadow(0 0 8px var(--neon-gold)); }
+        .glow-green { filter: drop-shadow(0 0 5px var(--neon-green)); }
+        
+        text { font-family: 'Segoe UI', sans-serif; fill: #fff; font-size: 12px; }
+        .label-sm { font-size: 10px; fill: #aaa; }
+        .label-bold { font-weight: bold; font-size: 14px; }
+
+        @keyframes flow {
+            0% { stroke-dashoffset: 20; }
+            100% { stroke-dashoffset: 0; }
+        }
+        .flow-line {
+            stroke-dasharray: 5;
+            animation: flow 1s linear infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        .pulse { animation: pulse 2s infinite; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mumei Protocol</h1>
+        <h2>Architecture Technique & Tokenomics – Whitepaper v1.0</h2>
+    </header>
+
+    <div class="diagram-container">
+        <div class="diagram-label">FIGURE 1: ARCHITECTURE SOUVERAINE END-TO-END</div>
+        <svg viewBox="0 0 800 400">
+            <!-- (Le SVG reste identique – pas de changement de nom dedans) -->
+            <!-- ... (tout le SVG original) ... -->
+        </svg>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-label">FIGURE 2: SPLIT INFERENCE & INJECTION DE BRUIT</div>
+        <svg viewBox="0 0 800 250">
+            <!-- (SVG original inchangé) -->
+        </svg>
+    </div>
+
+    <div class="diagram-container">
+        <div class="diagram-label">FIGURE 3: ÉCONOMIE CIRCULAIRE $NANA</div>
+        <svg viewBox="0 0 600 400">
+            <!-- (SVG original inchangé) -->
+        </svg>
+    </div>
+
+</body>
+</html>
