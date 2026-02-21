@@ -1,15 +1,45 @@
 Business Source License 1.1
 
-Licensed Work: Nanashi IA, NanashiOS, Mumei Protocol et tous les smart contracts, agents et documentation dans ce dépôt
+Licensed Work: Nanashi IA, NanashiOS, Mumei Protocol, tous les agents, smart contracts, documentation et code source présents dans ce dépôt
 Change Date: 20 février 2030 (4 ans à partir du 21 février 2026)
 Licensor: NanashiOS-Lab
 
-Utilisation commerciale (SaaS, revente, intégration cloud, application payante, fork à but lucratif ou toute forme d’exploitation à but lucratif) est interdite jusqu’à la date de changement ou avec une licence commerciale séparée de NanashiOS-Lab.
+1. Definitions
 
-Contact pour licence commerciale : nanashia256@gmail.com
+"Licensed Work" means the software, code, documentation, agents, smart contracts, designs, logos, slogans, and any other materials made available under this license.
 
-Le logiciel est fourni "tel quel", sans garantie d’aucune sorte.
+"Change Date" means 20 February 2030.
 
-Copyright © 2026 NanashiOS-Lab. Tous droits réservés pour le nom "Nanashi IA", "NanashiOS", "Mumei Protocol", le logo 👻🛡️, le slogan "Pas de nom. Pas de trace. Contrôle total" et le design original.
+"Commercial Use" means any use for commercial advantage or monetary compensation, including but not limited to: SaaS, revente, intégration dans un produit payant, cloud service, fork à but lucratif, utilisation dans une entreprise pour générer des revenus.
 
-Pour le texte complet de la licence : https://mariadb.com/bsl11/
+2. License Grant
+
+Licensor hereby grants you the right to copy, modify, and distribute the Licensed Work, provided that such use is not Commercial Use before the Change Date.
+
+3. Commercial Use Restriction
+
+Commercial Use of the Licensed Work is expressly prohibited until the Change Date or until you obtain a separate commercial license from NanashiOS-Lab.
+
+4. Copyright and Trademark Protection
+
+Copyright © 2026 NanashiOS-Lab. Tous droits réservés.
+
+Le nom « Nanashi IA », « NanashiOS », « Mumei Protocol », le logo (fantôme 👻 avec bouclier 🛡️), le slogan « Pas de nom. Pas de trace. Contrôle total. », ainsi que l’ensemble du design original, de l’identité visuelle et conceptuelle sont protégés par le droit d’auteur et le droit des marques (marque en cours de dépôt à l’INPI).
+
+Toute utilisation non autorisée du nom, logo, slogan, design ou marque sera poursuivie conformément au Code de la propriété intellectuelle français et européen.
+
+5. Disclaimer
+
+THE LICENSED WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE LICENSED WORK OR THE USE OR OTHER DEALINGS IN THE LICENSED WORK.
+
+6. Contact for Commercial License
+
+For any request for a commercial license or permission to use the Licensed Work for Commercial Use before the Change Date, contact:  
+nanashia256@gmail.com
+
+7. Full License Text Reference
+
+For the complete and official text of the Business Source License 1.1, see:  
+https://mariadb.com/bsl11/
+
+© 2026 NanashiOS-Lab. Tous droits réservés.
