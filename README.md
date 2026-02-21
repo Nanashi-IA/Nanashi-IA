@@ -85,3 +85,5 @@ flowchart TD
   style A fill:#001133,stroke:#00f2ff
   style D fill:#440033,stroke:#ff3131
 
+White Paper complet : Disponible dans le dépôt NanashiOS : https://github.com/NanashiOS-Lab/NanashiOS/blob/main/docs/whitepaper.md
+Plus d’infos blockchain : contracts/ dans ce dépôt.
