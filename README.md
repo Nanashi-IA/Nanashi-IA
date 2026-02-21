@@ -41,3 +41,47 @@ brew install ollama
 ollama serve &
 ollama pull llama3.1:8b
 open index.html
+
+# Nanashi IA – White Paper (Résumé)
+
+**Version 1.5 – Février 2026**  
+**Pas de nom. Pas de trace. Contrôle total.**
+
+Nanashi IA est un écosystème d’IA souveraine avec NanashiOS (OS local pour agents) et $NANA (token de gouvernance).
+
+## FIGURE 1 — ARCHITECTURE GLOBALE
+
+```mermaid
+flowchart TD
+  A["👤 Utilisateur"] --> B["NanashiOS Core"]
+  B --> C["Marketplace Agents"]
+  B --> D["Mumei Protocol (Bittensor Subnet)"]
+  D --> E["Proof of Intelligence"]
+  E --> F["$NANA Rewards"]
+  B --> G["Nanashi DAO"]
+  style A fill:#001133,stroke:#00f2ff
+  style B fill:#220033,stroke:#bc13fe
+  style D fill:#002211,stroke:#00ff9d
+  style E fill:#440033,stroke:#ff3131
+  style F fill:#330022,stroke:#fe13bc
+  style G fill:#001133,stroke:#00f2ff
+
+FIGURE 2 — ÉCONOMIE $NANA
+pie title Allocation $NANA
+  "Liquidity & Launch" : 20
+  "Community & Airdrop" : 15
+  "Team & Advisors" : 12
+  "Treasury DAO" : 25
+  "Ecosystem Fund" : 15
+  "Staking Rewards" : 10
+  "Public Sale / IDO" : 3
+
+FIGURE 3 — GOUVERNANCE DAO
+flowchart TD
+  A["$NANA Staké"] --> B["Proposition"]
+  B --> C["Vote On-chain"]
+  C --> D["Timelock 48h"]
+  D --> E["Exécution"]
+  style A fill:#001133,stroke:#00f2ff
+  style D fill:#440033,stroke:#ff3131
+
