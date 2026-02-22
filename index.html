@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Nanashi IA : Intelligence artificielle souveraine, 100% on-device, privacy absolute. Pas de nom. Pas de trace. Contrôle total.">
     <title>Nanashi | Sovereign AI Node</title>
     <style>
         :root {
@@ -246,6 +247,11 @@
             border: 1px solid var(--neon-purple);
         }
 
+        .chat-input-area {
+            display: flex;
+            gap: 8px;
+        }
+
         .chat-input {
             flex: 1;
             background: #111;
@@ -264,6 +270,14 @@
             color: black;
             font-weight: bold;
             cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            color: var(--dim);
+            font-size: 0.9em;
+            border-top: 1px solid #222;
         }
 
         /* Responsive */
@@ -288,10 +302,10 @@
 <body>
 
     <div class="sidebar">
-        <button class="icon-btn active" data-view="dashboard">⚡</button>
-        <button class="icon-btn" data-view="chat">💬</button>
-        <button class="icon-btn" data-view="security">🛡️</button>
-        <button class="icon-btn" data-view="settings">⚙️</button>
+        <button class="icon-btn active" data-view="dashboard" aria-label="Dashboard">⚡</button>
+        <button class="icon-btn" data-view="chat" aria-label="Chat">💬</button>
+        <button class="icon-btn" data-view="security" aria-label="Security">🛡️</button>
+        <button class="icon-btn" data-view="settings" aria-label="Settings">⚙️</button>
     </div>
 
     <div class="main">
@@ -324,6 +338,14 @@
                 <div class="log">> Nanashi Node v1.0 initialisé</div>
                 <div class="log">> Privacy zero-trust activé</div>
             </div>
+
+            <div class="card">
+                <h3>Lire le White Paper complet</h3>
+                <p>Accédez au document détaillé avec architecture, tokenomics, roadmap et diagrammes interactifs.</p>
+                <a href="https://github.com/Nanashi-IA/Nanashi-IA/blob/main/whitepaper.md" target="_blank" style="color: var(--neon-blue); text-decoration: none; font-weight: bold;">
+                    → Ouvrir le White Paper (Markdown)
+                </a>
+            </div>
         </div>
 
         <!-- Chat -->
@@ -334,7 +356,7 @@
                     <div class="msg ai">Connexion sécurisée 🔒<br>Je suis Nanashi – intelligence souveraine.<br>Comment puis-je vous aider ?</div>
                 </div>
                 <div class="chat-input-area">
-                    <input type="text" id="chatInput" placeholder="Message sécurisé...">
+                    <input type="text" id="chatInput" placeholder="Message sécurisé..." aria-label="Message">
                     <button class="send-btn" id="send">Envoyer</button>
                 </div>
             </div>
@@ -367,6 +389,11 @@
 
     </div>
 
+    <footer>
+        <p>© 2026 NanashiOS-Lab. Tous droits réservés. Licence BSL 1.1 – Commercial use restricted until 20 February 2030.</p>
+        <p><a href="https://github.com/Nanashi-IA/Nanashi-IA" target="_blank" style="color: var(--neon-blue);">GitHub Repository</a> | <a href="https://github.com/NanashiOS-Lab/NanashiOS" target="_blank" style="color: var(--neon-green);">NanashiOS Framework</a></p>
+    </footer>
+
     <script>
         // Navigation
         document.querySelectorAll('.icon-btn').forEach(btn => {
@@ -382,14 +409,17 @@
         let mining = false;
         let balance = 0;
         let gpu = 0;
-        let interval, particleInterval;
+        let interval, particleInterval, logInterval;
 
         const logs = [
             "Tâche split inference reçue...",
             "Fragment bruité validé",
             "Contribution PoI scorée +0.87",
             "Synchronisation hive...",
-            "Récompense $NANA ajoutée"
+            "Récompense $NANA ajoutée",
+            "ε-Noise obfuscation appliquée",
+            "ZK-SNARK proof générée",
+            "Validator sync OK"
         ];
 
         function createParticles() {
@@ -471,7 +501,7 @@
             setTimeout(() => {
                 const ai = document.createElement('div');
                 ai.className = 'msg ai';
-                ai.innerHTML = "Reçu chiffré. Analyse en cours...<br>Privacy garantie 🔒";
+                ai.innerHTML = "Reçu chiffré. Analyse en cours...<br>Privacy garantie 🔒<br>Réponse en génération...";
                 document.getElementById('chatWindow').appendChild(ai);
                 document.getElementById('chatWindow').scrollTop = document.getElementById('chatWindow').scrollHeight;
             }, 1200);
