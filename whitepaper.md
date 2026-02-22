@@ -205,4 +205,4 @@ C’est une **révolution souveraine** qui redonne le pouvoir aux individus face
 
 **NanashiOS-Lab** – Février 2026  
 Licence : Business Source License 1.1  
-Repository : https://github.com/NanashiOS-Lab/nanashi-os
+Repository : https://github.com/NanashiOS-Lab/nanashiOS
