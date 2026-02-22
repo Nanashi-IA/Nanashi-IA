@@ -1,5 +1,6 @@
 # White Paper – Nanashi IA & NanashiOS
-
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
 **Version 1.6 – Février 2026**  
 **Auteur** : NanashiOS-Lab  
 **Contact** : nanashia256@gmail.com  
