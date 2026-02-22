@@ -12,8 +12,8 @@
 ```mermaid
 mindmap
   root((White Paper Nanashi IA & NanashiOS))
-    [Version 1.6 – Février 2026]
-    [Pas de nom. Pas de trace. Contrôle total.]
+    Version 1.6 – Février 2026
+    "Pas de nom. Pas de trace. Contrôle total."
     Executive Summary
     Vision & Philosophie
     Le Problème Actuel de l’IA
