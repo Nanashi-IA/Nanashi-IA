@@ -1,0 +1,9 @@
+theme: jekyll-theme-minimal
+title: Nanashi IA
+description: Sovereign on-device AI | No name. Privacy absolute ❤️ 🔒 🐝
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-mermaid
