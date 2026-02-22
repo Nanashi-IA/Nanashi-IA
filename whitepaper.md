@@ -38,62 +38,105 @@ mindmap
     Aspects Légaux & Risques
     Conclusion
     Annexes Mathématiques
+
 1. Executive Summary
 Nanashi IA est un écosystème disruptif d’intelligence artificielle multimodale, conçu pour opérer de manière souveraine, décentralisée et entièrement privée. L’ensemble de l’exécution se fait localement sur l’appareil de l’utilisateur, sans aucune dépendance à un cloud tiers, éliminant ainsi les risques de surveillance, de censure, de latence, de coûts récurrents et de fuite de données.
 Au cœur de l’écosystème se trouve NanashiOS, un système d’exploitation complet dédié aux agents IA autonomes. Il intègre nativement une marketplace de 30 agents prêts à l’emploi (et extensible sans limite), couvrant des domaines variés : traitement du langage naturel, vision par ordinateur, synthèse et clonage vocal, détection de malware, chiffrement post-quantique, coordination multi-agents, etc.
 L’écosystème est soutenu par quatre piliers fondamentaux :
+
 1. Exécution 100 % locale : Aucun prompt, aucune donnée, aucun résultat n’est transmis à l’extérieur.
+
 2. Licence BSL 1.1 : Protection commerciale jusqu’en 2030, tout en laissant libre l’usage non-commercial et la recherche.
+
 3. Protocole Mumei : Smart contract de registre et vérification d’authenticité sur un subnet Bittensor, garantissant l’intégrité des agents via un consensus décentralisé (Proof of Intelligence anonyme).
+
 4. Nanashi DAO : Gouvernance pilotée par le token $NANA, avec vote on-chain, timelock et mécanismes anti-whale.
+
 Marché cible et TAM :
+
 * Utilisateurs privacy-first (individus, développeurs, entreprises)
+
 * Marché IA locale : 50–70 milliards $ d’ici 2028 (Gartner, IDC 2026)
+
 * Croissance annuelle : 35–45 % (driven par RGPD, AI Act, lois souveraines)
+
 * TAM Nanashi IA : 10–20 % du marché IA locale → potentiel de 5–14 milliards $ d’ici 2030
-Positionnement concurrentiel : Nanashi IA est actuellement le seul écosystème combinant IA locale + marketplace d’agents + gouvernance DAO + registre on-chain + privacy post-quantique à cette échelle. Il se distingue nettement de :
+
+Positionnement concurrentiel : Nanashi IA est actuellement le seul écosystème combinant IA locale + marketplace d’agents + gouvernance DAO + registre on-chain + privacy post-quantique à cette échelle.
+Il se distingue nettement de :
+
 * Frameworks locaux (Ollama, LocalAI) : pas de marketplace, pas de DAO, pas de registre on-chain
+
 * Plateformes cloud (OpenAI, Anthropic) : pas de privacy, pas de souveraineté
+
 * Bittensor seul : pas de marketplace d’agents prêts à l’emploi, pas de système d’exploitation
+
 Objectif stratégique 2027 : devenir la référence mondiale de l’IA souveraine, avec une adoption massive et une valorisation potentielle de plusieurs centaines de millions de dollars.
+
 2. Vision & Philosophie
 “Pas de nom. Pas de trace. Contrôle total.”
 Nanashi IA est né d’un constat simple mais radical : l’IA est devenue l’outil le plus puissant de l’histoire humaine, mais elle est aussi l’un des plus dangereux lorsqu’elle est centralisée.
 Philosophie en 4 piliers fondamentaux :
+
 1. Souveraineté numérique absolue : Exécution end-to-end locale avec isolation stricte (sandbox BPF, Firejail, Docker seccomp).
+
 2. Anonymat comme principe fondateur : Aucun compte, aucun KYC, obfuscation ε-Noise + chiffrement post-quantique.
+
 3. Privacy post-quantique : Protection contre les attaques futures via Kyber, Dilithium et ε-Differential Privacy (ε_total ≤ 4.0).
+
 4. Contrôle communautaire via DAO : Gouvernance 100 % token-based ($NANA) à partir de 2027.
 Cette philosophie s’inspire de :
+
 * Le mouvement cypherpunk (Satoshi Nakamoto, Wei Dai, Hal Finney)
+
 * Les principes de la souveraineté numérique (GDPR, AI Act, lois européennes sur la data residency)
+
 * Les avancées de Bittensor (incentivisation décentralisée de l’IA via subnets)
+
 * Les travaux sur Differential Privacy (Cynthia Dwork, Frank McSherry) et zk-SNARKs (Groth16, PLONK)
 Nanashi IA n’est pas seulement une technologie : c’est un manifesto pour une IA éthique, accessible et libre de toute surveillance.
+
 3. Le Problème Actuel de l’IA
 L’IA moderne est confrontée à des problèmes structurels profonds :
+
 * Centralisation extrême : 5 entreprises contrôlent > 80 % du marché IA cloud (Statista 2026)
+
 * Dépendance au cloud : Latence 200–500 ms, coût 0,01–0,10 $/1k tokens, risques outage/censure/surveillance
+
 * Manque d’autonomie : Agents fragiles, non persistants, dépendants d’API externes
+
 * Problèmes de privacy : 40 % des breaches IA liées à des leaks cloud (IBM 2025)
+
 * Risque de censure : Modèles modifiés/censurés par leurs créateurs
+
 * Manque de souveraineté : Les individus n’ont aucun contrôle
 Ces problèmes limitent l’innovation, créent des risques majeurs pour la vie privée et concentrent un pouvoir immense entre les mains de quelques entreprises.
+
 4. La Solution : Nanashi IA & NanashiOS
 Nanashi IA propose une réponse radicale et complète :
+
 * NanashiOS : Système d’exploitation pour agents IA autonomes, 100 % local
+
 * Marketplace : 30 agents prêts à l’emploi
+
 * Mumei Protocol : Registre on-chain sur Bittensor subnet
+
 * Nanashi DAO : Gouvernance décentralisée via $NANA
 Tout est conçu pour fonctionner sans cloud, avec une souveraineté maximale et une protection forte contre l’exploitation commerciale non autorisée grâce à la licence BSL 1.1.
+
 5. Architecture Technique
 NanashiOS repose sur une architecture modulaire, scalable et sécurisée, optimisée pour l’exécution locale sur hardware varié (Apple M-series, NVIDIA GPU, etc.).
+
 5.1 Composants core
+
 * Exécution locale sécurisée : Sandbox par agent (Docker/Firejail sur Linux/Mac, BPF sur macOS). Isolation mémoire + réseau + filesystem.
+
 * Split Inference : Répartition des calculs sur plusieurs shards. Formule : input_i = input + noise_i (noise_i ~ 𝒩(0, σ²)) Output final = aggregate(output_1, …, output_N)
 * ε-Noise Obfuscation : Differential Privacy. σ = Δf / ε (Δf = sensibilité, ε = budget privacy) Composition sur N shards : ε_total ≤ N ε_single + √(2N ln(1/δ)) ε_single + N ε_single² ε_single = 0.8–1.5, N = 8, δ = 10⁻⁵, ε_total cible ≤ 4.0
+
 * GHOST-ALPHA Vault : Stockage chiffré local (libsodium/RustCrypto) avec clé dérivée de l’utilisateur. Supporte Kyber (post-quantique).
-* Proof of Intelligence : Vérification décentralisée via Mumei (Bittensor subnet). Miners exécutent challenges, validators scorent. Preuve zk-SNARK (Groth16) : 130–200 bytes, génération 300–800 ms sur M4.
+* Proof of Intelligence : Vérification
+décentralisée via Mumei (Bittensor subnet). Miners exécutent challenges, validators scorent. Preuve zk-SNARK (Groth16) : 130–200 bytes, génération 300–800 ms sur M4.
 * Marketplace modulaire : Agents chargés dynamiquement via manifest.json. Exemple : def load_agent(agent_id):
 *     manifest = json.load(open(f"marketplace/agents/{agent_id}/manifest.json"))
 *     exec(open(f"marketplace/agents/{agent_id}/agent.py").read())
